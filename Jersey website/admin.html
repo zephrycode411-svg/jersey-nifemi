@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Store Admin | Desmond Empire Jerseys</title>
+  <script src="theme-init.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="admin-body">
+  <header class="navbar admin-navbar">
+    <a href="index.html" class="brand" aria-label="Back to Desmond Empire Jerseys">
+      <img src="images/brand-mark.svg" alt="" class="brand-mark">
+      <span>DESMOND <b>EMPIRE</b></span>
+    </a>
+    <span class="admin-label">STORE ADMIN</span>
+    <details class="theme-picker">
+      <summary class="theme-toggle" id="themeToggle" aria-label="Color theme: System" title="Color theme: System"><span class="theme-icon" aria-hidden="true">▣</span><span class="theme-label">System</span></summary>
+      <fieldset class="theme-menu"><legend>Color theme</legend>
+        <label class="theme-option"><input type="radio" name="themeMode" value="light"><span aria-hidden="true">☀</span><span>Light</span></label>
+        <label class="theme-option"><input type="radio" name="themeMode" value="dark"><span aria-hidden="true">☾</span><span>Dark</span></label>
+        <label class="theme-option"><input type="radio" name="themeMode" value="system"><span aria-hidden="true">▣</span><span>System</span></label>
+      </fieldset>
+    </details>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-login" id="adminLoginSection">
+      <p class="eyebrow">PRIVATE STORE TOOLS</p>
+          <h1>Store <span>CRM.</span></h1>
+      <p class="admin-intro">Manage jersey listings, available sizes, and customer orders.</p>
+      <form id="adminLoginForm" class="admin-login-form">
+        <label for="adminUsername">Username</label>
+        <input id="adminUsername" name="username" autocomplete="username" required>
+        <button class="btn" type="submit">OPEN CRM</button>
+      </form>
+      <p id="adminMessage" class="admin-message" aria-live="polite"></p>
+      <p class="admin-security-note">Private staff access. Sign-in expires after eight hours. <a href="ADMIN-SETUP.md" target="_blank" rel="noreferrer">Login setup</a></p>
+    </section>
+
+    <section id="adminDashboard" class="admin-dashboard" hidden>
+      <div class="admin-page-heading">
+        <div>
+          <p class="eyebrow">STORE MANAGEMENT</p>
+          <h1>Store <span>CRM.</span></h1>
+        </div>
+        <button class="text-button" id="adminSignOut" type="button">SIGN OUT</button>
+      </div>
+      <p id="dashboardMessage" class="admin-message" aria-live="polite"></p>
+
+      <section class="admin-how-to" aria-labelledby="adminHowToTitle">
+        <h2 id="adminHowToTitle">Quick guide</h2>
+        <ol>
+          <li>Add jerseys with a photo, price, category, and current stock. Open a row to update quantities later.</li>
+          <li>Use <strong>Archive jersey</strong> to remove a sold-out item from the shop without deleting its order history.</li>
+          <li>Open an order under Recent orders to review the jersey, size, badge, customer, and delivery address.</li>
+          <li>Confirm only when ready; confirmation deducts stock. Mark it dispatched after sending, or completed when done. Cancelling a confirmed order restores stock.</li>
+        </ol>
+      </section>
+
+      <section class="admin-section" aria-labelledby="inventoryTitle">
+        <div class="admin-section-heading">
+          <div>
+            <p class="eyebrow">CATALOG</p>
+            <h2 id="inventoryTitle">Jersey inventory</h2>
+          </div>
+          <button class="text-button" id="refreshAdmin" type="button">REFRESH</button>
+        </div>
+        <details class="admin-add-product" id="addProductPanel">
+          <summary><span class="add-product-icon" aria-hidden="true">+</span><span>Add a jersey</span><small>Upload a photo and publish it to the shop</small></summary>
+          <form id="addProductForm" class="admin-add-product-form" enctype="multipart/form-data">
+            <label class="product-image-upload" for="productImage">
+              <img id="productImagePreview" alt="Selected jersey preview" hidden>
+              <span id="productImagePrompt"><strong>Choose jersey photo</strong><small>JPEG, PNG, or WebP, up to 5 MB</small></span>
+            </label>
+            <input id="productImage" name="image" type="file" accept="image/jpeg,image/png,image/webp" required>
+            <div class="product-form-fields">
+              <label>Jersey name<input name="name" maxlength="120" placeholder="e.g. Nigeria Away Jersey" required></label>
+              <label>Team or collection<input name="team" maxlength="80" placeholder="e.g. Nigeria" required></label>
+              <label>Category<select name="category" required><option value="club">Club</option><option value="national">National team</option></select></label>
+              <label>Price (NGN)<input name="price" type="number" min="1" step="1" placeholder="18000" required></label>
+              <fieldset class="new-product-stock">
+                <legend>Available stock by size</legend>
+                <div class="new-product-stock-grid">
+                  <label>S<input name="stock_S" type="number" min="0" max="1000000" step="1" value="0" required></label>
+                  <label>L<input name="stock_L" type="number" min="0" max="1000000" step="1" value="0" required></label>
+                  <label>XL<input name="stock_XL" type="number" min="0" max="1000000" step="1" value="0" required></label>
+                  <label>XXL<input name="stock_XXL" type="number" min="0" max="1000000" step="1" value="0" required></label>
+                </div>
+              </fieldset>
+              <label class="product-new-arrival"><input name="isNewArrival" type="checkbox" value="true"> Mark as new arrival</label>
+            </div>
+            <button class="btn" type="submit">ADD JERSEY TO SHOP</button>
+            <p class="admin-form-message" id="addProductMessage" aria-live="polite"></p>
+          </form>
+        </details>
+        <p class="admin-help">Track sizes individually. Sold-out jerseys can be archived from the public shop and restored when available again.</p>
+        <div id="inventoryList" class="admin-inventory-list"></div>
+      </section>
+
+      <section class="admin-section" aria-labelledby="ordersTitle">
+        <div class="admin-section-heading">
+          <div>
+            <p class="eyebrow">WHATSAPP CHECKOUT REQUESTS</p>
+            <h2 id="ordersTitle">Recent orders</h2>
+          </div>
+        </div>
+        <div id="ordersList" class="admin-orders-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

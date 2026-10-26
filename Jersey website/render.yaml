@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: dej-jersey-store-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend:app
+    healthCheckPath: /api/health
+    disk:
+      name: store-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: DEJ_DATABASE_PATH
+        value: /var/data/store.sqlite3
+      - key: DEJ_PRODUCT_UPLOADS_PATH
+        value: /var/data/products

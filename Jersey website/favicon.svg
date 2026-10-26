@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <path d="M32 3 58 12v19c0 15-10 25-26 30C16 56 6 46 6 31V12L32 3Z" fill="#14231c" stroke="#d4e762" stroke-width="3"/>
+  <path d="M12 17 32 10l20 7v6H12z" fill="#d4e762"/>
+  <text x="32" y="45" fill="#fff" font-family="Arial,sans-serif" font-size="23" font-weight="800" text-anchor="middle">DE</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Desmond Empire Jerseys monogram</title>
+  <path d="M48 4 87 18v29c0 22-15 37-39 45C24 84 9 69 9 47V18L48 4Z" fill="#14231c" stroke="#d4e762" stroke-width="4"/>
+  <path d="M15 23 48 11l33 12v8H15z" fill="#d4e762"/>
+  <text x="48" y="59" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="800" text-anchor="middle">DE</text>
+  <path d="m32 69 8 8 24-22" fill="none" stroke="#d4e762" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+</svg>

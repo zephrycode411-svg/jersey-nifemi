@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "builds": [
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "*.js", "use": "@vercel/static" },
+    { "src": "*.css", "use": "@vercel/static" },
+    { "src": "*.svg", "use": "@vercel/static" },
+    { "src": "images/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://dej-jersey-store-api.onrender.com/api/$1"
+    },
+    {
+      "src": "/images/products/(.*)",
+      "dest": "https://dej-jersey-store-api.onrender.com/images/products/$1"
+    },
+    { "handle": "filesystem" }
+  ]
+}

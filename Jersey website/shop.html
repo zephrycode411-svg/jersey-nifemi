@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse club, national team, and retro football jerseys at Desmond Empire Jerseys.">
+  <title>Shop Jerseys | Desmond Empire Jerseys</title>
+  <script src="theme-init.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html" class="brand" aria-label="Desmond Empire Jerseys home">
+      <img src="images/brand-mark.svg" alt="" class="brand-mark">
+      <span>DESMOND <b>EMPIRE</b></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav id="navMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html" aria-current="page">Shop</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="help.html">Help</a>
+    </nav>
+    <details class="theme-picker">
+      <summary class="theme-toggle" id="themeToggle" aria-label="Color theme: System" title="Color theme: System"><span class="theme-icon" aria-hidden="true">▣</span><span class="theme-label">System</span></summary>
+      <fieldset class="theme-menu"><legend>Color theme</legend>
+        <label class="theme-option"><input type="radio" name="themeMode" value="light"><span aria-hidden="true">☀</span><span>Light</span></label>
+        <label class="theme-option"><input type="radio" name="themeMode" value="dark"><span aria-hidden="true">☾</span><span>Dark</span></label>
+        <label class="theme-option"><input type="radio" name="themeMode" value="system"><span aria-hidden="true">▣</span><span>System</span></label>
+      </fieldset>
+    </details>
+    <button class="cart-button" id="cartOpen" type="button" aria-haspopup="dialog" aria-controls="cartDialog" aria-label="Open cart, 0 items" title="Open cart">
+      <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 8H6"></path><circle cx="10" cy="21" r="1"></circle><circle cx="18" cy="21" r="1"></circle></svg>
+      <span class="cart-button-label">Cart</span><span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="shop section" id="shop">
+      <div class="section-heading">
+        <p class="eyebrow">FULL COLLECTION</p>
+        <h1>ICONIC KITS. <span>FRESH LOOKS.</span></h1>
+        <p>Browse club favourites, national team shirts, and throwback classics.</p>
+      </div>
+      <form class="search-form" id="searchForm" role="search">
+        <label class="visually-hidden" for="jerseySearch">Search jerseys</label>
+        <input id="jerseySearch" name="q" type="search" placeholder="Search team or jersey" autocomplete="off">
+        <button class="btn search-button" type="submit"><span aria-hidden="true">⌕</span> Search</button>
+      </form>
+      <div class="shop-filters" role="group" aria-label="Filter jerseys">
+        <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">All jerseys</button>
+        <button type="button" class="filter-button" data-filter="club" aria-pressed="false">Club</button>
+        <button type="button" class="filter-button" data-filter="national" aria-pressed="false">National teams</button>
+        <button type="button" class="filter-button" data-filter="new" aria-pressed="false">New arrivals</button>
+        <button type="button" class="filter-button" data-filter="favorites" aria-pressed="false">Favorites</button>
+      </div>
+      <p class="search-status" id="searchStatus" aria-live="polite"></p>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="stock-note">Stock available in Lagos and selected locations in Ogun State.</p>
+      <p class="collection-tagline">YOUR TEAM. YOUR PRIDE. YOUR JERSEY.</p>
+    </section>
+  </main>
+
+  <dialog class="store-dialog cart-dialog" id="cartDialog" aria-labelledby="cartTitle">
+    <div class="dialog-header">
+      <div><p class="eyebrow">YOUR SELECTION</p><h2 id="cartTitle">Shopping cart</h2></div>
+      <div class="cart-header-actions">
+        <button class="clear-cart-button" id="clearCart" type="button" disabled>CLEAR CART</button>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Close cart">×</button>
+      </div>
+    </div>
+    <div class="dialog-content" id="cartItems"></div>
+    <form class="cart-summary" id="checkoutDetails">
+      <div class="cart-total-row"><span>Estimated total</span><strong id="cartTotal">₦0</strong></div>
+      <div class="checkout-fields">
+        <label for="checkoutName">Full name</label><input id="checkoutName" name="name" autocomplete="name" maxlength="100" required>
+        <label for="checkoutPhone">Phone number</label><input id="checkoutPhone" name="phone" type="tel" autocomplete="tel" maxlength="40" required>
+        <label for="checkoutAddress">Delivery address</label><textarea id="checkoutAddress" name="address" autocomplete="street-address" maxlength="500" rows="2" required></textarea>
+      </div>
+      <div class="checkout-actions">
+        <button class="btn" type="submit" name="order-channel" value="whatsapp" disabled>CONTINUE TO WHATSAPP</button>
+        <button class="btn btn-outline" type="submit" name="order-channel" value="email" disabled>EMAIL ORDER</button>
+      </div>
+      <p>Choose either option to open a ready-to-send order. Availability, delivery charges, and final arrangements are confirmed with us.</p>
+    </form>
+  </dialog>
+
+  <dialog class="store-dialog email-draft-dialog" id="emailDraftDialog" aria-labelledby="emailDraftTitle">
+    <div class="dialog-header">
+      <div><p class="eyebrow">ORDER EMAIL</p><h2 id="emailDraftTitle">Your email draft</h2></div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="Close email draft">×</button>
+    </div>
+    <div class="email-draft-content">
+      <label for="emailOrderRecipient">To</label><input id="emailOrderRecipient" type="email" value="Nifemidesmond28@gmail.com" readonly>
+      <label for="emailOrderSubject">Subject</label><input id="emailOrderSubject" type="text" readonly>
+      <label for="emailOrderBody">Order details</label><textarea id="emailOrderBody" rows="12" readonly></textarea>
+      <div class="email-draft-actions">
+        <a class="btn" id="openEmailApp" href="mailto:Nifemidesmond28@gmail.com">OPEN EMAIL APP</a>
+        <button class="btn btn-outline" id="copyEmailDraft" type="button">COPY DETAILS</button>
+      </div>
+      <p id="emailCopyStatus" class="email-copy-status" aria-live="polite">Opening your email app creates a draft. You still need to send it.</p>
+    </div>
+  </dialog>
+
+  <dialog class="store-dialog product-dialog" id="productDialog" aria-labelledby="productDialogTitle">
+    <button class="icon-button product-dialog-close" type="button" data-close-dialog aria-label="Close product details">×</button>
+    <div id="productDetails"></div>
+  </dialog>
+
+  <footer>
+    <p>© <span id="year"></span> Desmond Empire Jerseys. All rights reserved.</p>
+    <p>Orders and payment arrangements handled directly with us.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
